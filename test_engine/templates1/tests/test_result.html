@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        .result-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .score {
+            font-size: 24px;
+            color: #2c3e50;
+        }
+        .summary {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #2980b9;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="result-container">
+        <h1>Test Result</h1>
+
+        <p><strong>Test Title:</strong> {{ test.title }}</p>
+
+        <p class="score">Your Score: {{ score }}/{{ total_questions }}</p>
+
+
+        <a href="{% url 'test_detail' %}" class="button">Take Another Test</a>
+    </div>
+
+</body>
+</html>
+
+
+path('create/', views.create_test, name='create_test'),
+path('<int:test_id>/', views.test_detail, name='test_detail'),

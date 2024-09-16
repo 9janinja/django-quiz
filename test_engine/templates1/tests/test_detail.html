@@ -1,0 +1,15 @@
+<h2>{{ test.title }}</h2>
+<p>{{ test.description }}</p>
+
+<form method="POST">
+  {% csrf_token %}
+  {% for question in questions %}
+    <h4>{{ question.question_text }}</h4>
+    <label><input type="radio" name="{{ question.id }}" value="{{ question.option_1 }}"> {{ question.option_1 }}</label><br>
+    <label><input type="radio" name="{{ question.id }}" value="{{ question.option_2 }}"> {{ question.option_2 }}</label><br>
+    <label><input type="radio" name="{{ question.id }}" value="{{ question.option_3 }}"> {{ question.option_3 }}</label><br>
+    <label><input type="radio" name="{{ question.id }}" value="{{ question.option_4 }}"> {{ question.option_4 }}</label><br>
+  {% endfor %}
+  
+  <input type="submit" value="Submit Test">
+</form>
